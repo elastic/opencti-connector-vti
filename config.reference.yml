@@ -1,0 +1,92 @@
+---
+# Reference configuration for VirusTotal Intelligence Live Hunt connector.
+# All values can be optionally specified by the environment variable shown.
+# All settings listed as REQUIRED must be specified by either config file
+# or environment variable. Everything else will use the default values,
+# which are shown here in the commented out keys
+#
+# The priority of settings overrides is:
+#   default settings, environment variables, configuration file
+opencti:
+    # Base URL used to connect to OpenCTI
+    # Equivalent environment variable: OPENCTI_URL
+    # url: http://127.0.0.1:8080
+
+    # Token used to authenticate to OpenCTI API
+    # Equivalent environment variable: OPENCTI_TOKEN
+    # REQUIRED
+    token: "<OPENCTI_TOKEN>"
+
+    # When connecting to OpenCTI over HTTPS, verify the certificate
+    # Equivalent environment variable: OPENCTI_SSL_VERIFY
+    # ssl_verify: True
+
+    # Format log data using JSON
+    # Equivalent environment variable: OPENCTI_JSON_LOGGING
+    # json_logging: true
+
+connector:
+    # Unique ID for the connected, specified as a UUIDv4
+    # Equivalent environment variable: CONNECTOR_ID
+    # REQUIRED
+    id: "<UUID>"
+
+    # Type of connector as registered to OpenCTI. You shouldn't change this
+    # Equivalent environment variable: CONNECTOR_TYPE
+    # type: "EXTERNAL_IMPORT"
+
+    # Name of connector as it appears in the OpenCTI Data -> Connectors screen
+    # Equivalent environment variable: CONNECTOR_NAME
+    # name: "VirusTotal-LiveHunt"
+
+    # Log level for the connector
+    # Equivalent environment variable: CONNECTOR_LOG_LEVEL
+    # log_level: "WARN"
+
+    # Confidence level used when submitting data to OpenCTI
+    # Equivalent environment variable: CONNECTOR_CONFIDENCE_LEVEL
+    # confidence_level: 15
+
+    # Connector scope as sent to the OpenCTI API. This shouldn't be changed.
+    # Equivalent environment variable: CONNECTOR_SCOPE
+    # scope: "virustotal-livehunt"
+
+    # If set, connector will run through a single iteration of notifications and quit.
+    # Equivalent environment variable: CONNECTOR_RUN_AND_TERMINATE
+    # run_and_terminate: False
+
+livehunt:
+    # API Key used to authenticate to VirusTotal LiveHunt API
+    # Equivalent environment variable: LIVEHUNT_APIKEY
+    # REQUIRED
+    apikey: "<VIRUSTOTAL_APIKEY>"
+
+    # ID used to identify this system as an identity in OpenCTI. This is used to link sightings to this system.
+    # Otherwise, the connector will search for an entity by name and create one if it cannot be found.
+    # Equivalent environment variable: LIVEHUNT_SYSTEM_ID
+    # system_id: "<RANDOMLY GENERATED ON FIRST RUN>"
+
+    # Use this to limit which objects will be imported. Removing one of the items in this list will
+    # remove them from the STIX bundle when ingested to OpenCTI
+    # Equivalent environment variable: LIVEHUNT_IMPORT_SCOPE
+    # import_scope: "indicator,sighting,file"
+
+    # Use this to limit which notifications are retrieved. You can specify a ruleset by using the ruleset name
+    # with replacing any '-' characters with '_'. This value should be a comma-separated list or an array.
+    # Equivalent environment variable: LIVEHUNT_LIMIT_TAGS
+    # limit_tags: ""
+
+    # Number of seconds between polling the API
+    # Equivalent environment variable: LIVEHUNT_QUERY_INTERVAL
+    # query_interval: 300
+
+    # Date or timestamp that should be the oldest notification ingested. This value
+    # may be a UNIX timestamp (i.e. seconds since 1970-01-01) or a date string formatted
+    # as %Y-%m-%d (i.e. 1970-12-01 for December 1st, 1970)
+    # Equivalent environment variable: LIVEHUNT_SINCE_DATE
+    # since_date: 0
+
+    # Optionally tag the File object with the labels `livehunt` and `yara:<rule_name>`, where `rule_name`
+    # is the name of the YARA rule that triggered the notification.
+    # Equivalent environment variable: LIVEHUNT_TAG_WITH_RULE
+    # tag_with_rule: True

@@ -1,0 +1,79 @@
+{
+  "type": "bundle",
+  "id": "bundle--1e5aff9d-dacf-4aa4-b3fc-d3266a6d2af9",
+  "objects": [
+    {
+      "type": "identity",
+      "spec_version": "2.1",
+      "id": "identity--9a7de335-5d7b-55a1-bfde-cb9c98ca6ebc",
+      "created": "2021-04-14T14:56:07.000Z",
+      "modified": "2021-09-08T14:59:20.000Z",
+      "name": "Elastic Intelligence & Analytics",
+      "identity_class": "organization",
+      "sectors": [
+        "technology"
+      ],
+      "contact_information": "intelligence_and_analytics_team@elastic.co"
+    },
+    {
+      "type": "identity",
+      "spec_version": "2.1",
+      "id": "system--2600c684-cb77-5e05-9f9b-2dee8cd6028b",
+      "created": "2021-11-02T12:47:41.000Z",
+      "modified": "2021-11-02T15:20:37.000Z",
+      "name": "VirusTotal Livehunt",
+      "identity_class": "system",
+      "contact_information": "intelligence_and_analytics_team@elastic.co"
+    },
+    {
+      "type": "file",
+      "spec_version": "2.1",
+      "id": "file--43583459-0755-5139-bd79-3e4f7c844ca3",
+      "hashes": {
+        "MD5": "083249ce8fec9d99ef63fd7c0a758044",
+        "SHA-1": "1ff103a2af23fcba392dba43b205402bea346ce6",
+        "SHA-256": "9cbd7decb4d999b98b5ea6e969d56a5f4e726bb61c7baa23bdeced72f401c048"
+      },
+      "size": 129329,
+      "name": "4d87731fa95a402aa7507c43f270e5be.dll"
+    },
+    {
+      "type": "observed-data",
+      "spec_version": "2.1",
+      "id": "observed-data--0a049514-b6f1-4a83-915c-6f2f068d9515",
+      "created_by_ref": "identity--9a7de335-5d7b-55a1-bfde-cb9c98ca6ebc",
+      "created": "2021-10-28T16:46:36.000Z",
+      "modified": "2021-11-01T20:30:10.274475Z",
+      "first_observed": "2021-10-28T16:46:36Z",
+      "last_observed": "2021-10-28T16:46:36Z",
+      "number_observed": 1,
+      "object_refs": [
+        "file--43583459-0755-5139-bd79-3e4f7c844ca3"
+      ]
+    },
+    {
+      "type": "sighting",
+      "spec_version": "2.1",
+      "id": "sighting--b588168c-4c82-44ac-a870-1d4fc183278b",
+      "created_by_ref": "system--2600c684-cb77-5e05-9f9b-2dee8cd6028b",
+      "created": "2021-10-28T17:46:41.000Z",
+      "modified": "2021-10-28T17:46:41.000Z",
+      "first_seen": "2021-10-28T16:46:41Z",
+      "last_seen": "2021-10-28T16:46:41Z",
+      "count": 1,
+      "sighting_of_ref": "indicator--1251a559-0dbe-584d-a712-04fdcdf1279d",
+      "observed_data_refs": [
+        "observed-data--0a049514-b6f1-4a83-915c-6f2f068d9515"
+      ],
+      "where_sighted_refs": [
+        "identity--9a7de335-5d7b-55a1-bfde-cb9c98ca6ebc"
+      ],
+      "external_references": [
+        {
+          "source_name": "VirusTotal LiveHunt Notifications",
+          "url": "https://www.virustotal.com/api/v3/intelligence/hunting_notifications/6703493308121088-61400eb9fc9c3d6f007b186cbc0a2e46-9cbd7decb4d999b98b5ea6e969d56a5f4e726bb61c7baa23bdeced72f401c048-1635442930"
+        }
+      ]
+    }
+  ]
+}
